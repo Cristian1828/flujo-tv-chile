@@ -1,6 +1,57 @@
 # Flujo TV Chile
 
-Landing page para Chile (enfoque: calidad de imagen HD/4K) construida con Astro.
+Landing de conversión para **Flujo TV Chile** (enfoque: **calidad de imagen HD/4K**), construida con Astro y salida estática.
+
+## ¿Qué incluye esta landing?
+
+- Hero con CTA principal a WhatsApp (icono, sin mostrar el número)
+- Sección de beneficios y highlights
+- Pasos de instalación/uso
+- Tabla de planes con precios fijos
+- Dispositivos compatibles
+- FAQ + datos estructurados (JSON-LD) para SEO
+- Footer con soporte
+
+## Datos comerciales (Chile)
+
+- Dominio canónico: `https://cl.flujooficial.com`
+- Soporte: `soporte@flujooficial.com`
+- WhatsApp (interno, oculto en UI): `51921445800`
+
+Estos valores viven en `src/config/site.ts`.
+
+## Planes (precios fijos)
+
+- 1 mes: **$9**
+- 3 meses: **$29**
+- 6 meses: **$49** (incluye 1 mes gratis)
+- 12 meses: **$99** (incluye 2 meses gratis)
+
+## Compatibilidad (reglas estrictas)
+
+Compatibles:
+
+- Android (móvil/tablet)
+- TV Box
+- Fire Stick
+- Google TV
+- Xiaomi Stick
+- Smart TV con Android
+- Computadora/Laptop con emulador Android
+
+No mencionar como compatibles:
+
+- iOS/iPhone/iPad/Apple TV
+- Roku
+- Smart TV Samsung/LG nativo (sin TV Box)
+
+## Estructura (dónde editar)
+
+- Página principal: `src/pages/index.astro`
+- Layout/SEO (meta tags + JSON-LD): `src/layouts/Layout.astro`
+- Config de sitio (dominio/soporte/WhatsApp): `src/config/site.ts`
+- Componentes: `src/components/*`
+- Assets públicos: `public/*` (incluye `hero-chile.jpg`, `logo_flujo.png`, `robots.txt`, `sitemap.xml`)
 
 ## Requisitos
 
@@ -42,6 +93,11 @@ Ya están incluidos:
 - `public/sitemap.xml` con la URL canónica del sitio
 - `<link rel="canonical">`, Open Graph/Twitter y JSON-LD en `src/layouts/Layout.astro`
 
+Importante para no “confundir” a Google:
+
+- El **canonical** y el **sitemap** apuntan a `https://cl.flujooficial.com`.
+- En Netlify, configura el **dominio final** (`cl.flujooficial.com`) o al menos el custom domain antes de solicitar indexación.
+
 Para indexar más rápido:
 
 1) En Google Search Console, agrega la propiedad del dominio/sitio
@@ -73,3 +129,10 @@ Luego (ejemplo):
 
 - `git remote add origin https://github.com/<tu-usuario>/<tu-repo>.git`
 - `git push -u origin master`
+
+## Checklist rápido antes de publicar
+
+- `npm run build` sin errores
+- Netlify desplegando desde `dist/`
+- Dominio `cl.flujooficial.com` configurado (para que canonical/sitemap coincidan)
+- Sitemap enviado en Search Console
