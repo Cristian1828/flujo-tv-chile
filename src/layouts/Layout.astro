@@ -47,6 +47,62 @@ const pageId = `${canonicalUrl}#webpage`;
 const orgId = `${site.canonical}#organization`;
 const websiteId = `${site.canonical}#website`;
 const serviceId = `${site.canonical}#service`;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': orgId,
+      name: 'Flujo TV Chile',
+      url: site.canonical,
+      logo: ogImageUrl,
+      email: site.supportEmail,
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          email: site.supportEmail,
+          availableLanguage: ['es']
+        }
+      ],
+      sameAs: []
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: site.canonical,
+      name: 'Flujo TV Chile',
+      publisher: { '@id': orgId },
+      inLanguage: 'es-CL'
+    },
+    {
+      '@type': 'WebPage',
+      '@id': pageId,
+      url: canonicalUrl,
+      name: title,
+      description,
+      isPartOf: { '@id': websiteId },
+      about: { '@id': serviceId },
+      inLanguage: 'es-CL',
+      primaryImageOfPage: { '@type': 'ImageObject', url: ogImageUrl }
+    },
+    {
+      '@type': 'Service',
+      '@id': serviceId,
+      name: 'Television en vivo en HD/4K',
+      description: 'Servicio premium de television en vivo y catálogo bajo demanda, diseñado para Android y dispositivos compatibles.',
+      provider: { '@id': orgId },
+      areaServed: [{ '@type': 'Country', name: 'CL' }],
+      offers: [
+        { '@type': 'Offer', name: 'Plan 1 mes', price: 9, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
+        { '@type': 'Offer', name: 'Plan 3 meses', price: 29, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
+        { '@type': 'Offer', name: 'Plan 6 meses (incluye 1 mes gratis)', price: 49, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
+        { '@type': 'Offer', name: 'Plan 12 meses (incluye 2 meses gratis)', price: 99, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' }
+      ]
+    }
+  ]
+};
 ---
 
 <!doctype html>
@@ -90,63 +146,7 @@ const serviceId = `${site.canonical}#service`;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
 
-    <script type="application/ld+json">
-      {JSON.stringify({
-        '@context': 'https://schema.org',
-        '@graph': [
-          {
-            '@type': 'Organization',
-            '@id': orgId,
-            name: 'Flujo TV Chile',
-            url: site.canonical,
-            logo: ogImageUrl,
-            email: site.supportEmail,
-            contactPoint: [
-              {
-                '@type': 'ContactPoint',
-                contactType: 'customer support',
-                email: site.supportEmail,
-                availableLanguage: ['es']
-              }
-            ],
-            sameAs: []
-          },
-          {
-            '@type': 'WebSite',
-            '@id': websiteId,
-            url: site.canonical,
-            name: 'Flujo TV Chile',
-            publisher: { '@id': orgId },
-            inLanguage: 'es-CL'
-          },
-          {
-            '@type': 'WebPage',
-            '@id': pageId,
-            url: canonicalUrl,
-            name: title,
-            description,
-            isPartOf: { '@id': websiteId },
-            about: { '@id': serviceId },
-            inLanguage: 'es-CL',
-            primaryImageOfPage: { '@type': 'ImageObject', url: ogImageUrl }
-          },
-          {
-            '@type': 'Service',
-            '@id': serviceId,
-            name: 'Television en vivo en HD/4K',
-            description: 'Servicio premium de television en vivo y catálogo bajo demanda, diseñado para Android y dispositivos compatibles.',
-            provider: { '@id': orgId },
-            areaServed: [{ '@type': 'Country', name: 'CL' }],
-            offers: [
-              { '@type': 'Offer', name: 'Plan 1 mes', price: 9, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
-              { '@type': 'Offer', name: 'Plan 3 meses', price: 29, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
-              { '@type': 'Offer', name: 'Plan 6 meses (incluye 1 mes gratis)', price: 49, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
-              { '@type': 'Offer', name: 'Plan 12 meses (incluye 2 meses gratis)', price: 99, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' }
-            ]
-          }
-        ]
-      })}
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
 
   <body class="bg-[#06080c] text-white antialiased">
