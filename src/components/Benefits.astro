@@ -1,0 +1,50 @@
+---
+const items = [
+  {
+    title: 'Imagen nítida (HD/4K)',
+    desc: 'Pensado para que lo veas claro y fluido cuando tu conexión es estable.'
+  },
+  {
+    title: 'Multi-dispositivo Android',
+    desc: 'Úsalo en celular/tablet Android, TV Box, Fire Stick, Google TV, Xiaomi Stick y computadora/laptop (con emulador Android).'
+  },
+  {
+    title: 'Activación asegurada',
+    desc: 'Compras, recibes tus accesos y empiezas a ver. Sin vueltas.'
+  },
+  {
+    title: 'Soporte garantizado',
+    desc: 'Te guiamos paso a paso por WhatsApp si necesitas instalar o configurar.'
+  },
+  {
+    title: 'Planes flexibles',
+    desc: 'Elige el plan que se ajuste a tu ritmo. Renueva cuando lo necesites.'
+  },
+  {
+    title: 'Cuenta personal',
+    desc: 'Acceso privado, con recomendaciones para uso seguro y estable.'
+  }
+];
+---
+
+<section id="beneficios" class="mx-auto max-w-6xl px-4 py-14">
+  <div class="flex items-end justify-between gap-6">
+    <div>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold">¿Por qué Flujo TV?</h2>
+      <p class="mt-2 text-white/70 max-w-2xl">
+        En Chile, la diferencia se nota en la pantalla: menos distracciones, más nitidez.
+        Diseñamos la experiencia para que el contenido se vea bien y se sienta fácil.
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {items.map((i) => (
+      <div class="glass rounded-2xl p-6">
+        <div class="h-10 w-10 rounded-2xl bg-gradient-to-br from-lime-300/25 to-sky-400/20 border border-white/10"></div>
+        <h3 class="mt-4 font-display text-xl font-extrabold">{i.title}</h3>
+        <p class="mt-2 text-sm text-white/70">{i.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>

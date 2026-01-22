@@ -1,0 +1,121 @@
+---
+import { waLink } from '../config/site';
+
+const ctaPrimary = waLink('Hola, quiero activar Flujo TV Chile y ver en HD/4K.');
+const ctaSecondary = '#planes';
+---
+
+<section id="inicio" class="relative">
+  <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-lime-300/15 blur-3xl"></div>
+    <div class="absolute top-10 -right-32 h-96 w-96 rounded-full bg-sky-400/10 blur-3xl"></div>
+    <div class="absolute -bottom-24 left-1/3 h-80 w-80 rounded-full bg-fuchsia-400/10 blur-3xl"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-6xl px-5 pt-14 pb-16 md:px-4 md:pt-20 md:pb-14">
+    <div class="grid gap-8 md:gap-10 md:grid-cols-[1.1fr_0.9fr] items-center">
+      <div>
+        <h1 class="mt-2 font-display text-[2.35rem] leading-[1.02] sm:text-4xl md:text-6xl md:leading-[1] font-extrabold tracking-tight pr-1 break-words">
+          FLUJO TV en Chile:
+          <span class="block text-gradient">Television en vivo en HD/4K</span>
+          <span class="block">que se ve nítido, sin complicacio<wbr />nes</span>
+        </h1>
+
+        <p class="mt-5 text-base md:text-lg text-white/75 max-w-xl">
+          Flujo TV es un servicio premium de television en vivo y catálogo bajo demanda.
+          Diseñado para verse fluido y claro en dispositivos Android.
+          Requiere internet estable.
+        </p>
+
+        <div class="mt-7 flex flex-col sm:flex-row gap-3">
+          <a
+            href={ctaPrimary}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-2xl px-6 py-4 font-semibold bg-gradient-to-r from-lime-300/25 to-sky-400/25 border border-white/15 hover:border-white/25 hover:bg-white/10 transition"
+          >
+            Comprar / Activar por WhatsApp
+          </a>
+          <a
+            href={ctaSecondary}
+            class="inline-flex items-center justify-center rounded-2xl px-6 py-4 font-semibold bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition"
+          >
+            Ver planes
+          </a>
+        </div>
+
+        <div class="mt-7 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="glass rounded-2xl p-4">
+            <div class="text-sm font-semibold">HD/4K</div>
+            <div class="text-xs text-white/60">Nitidez y fluidez</div>
+          </div>
+          <div class="glass rounded-2xl p-4">
+            <div class="text-sm font-semibold">3 pantallas</div>
+            <div class="text-xs text-white/60">Simultáneas</div>
+          </div>
+          <div class="glass rounded-2xl p-4">
+            <div class="text-sm font-semibold">Activación</div>
+            <div class="text-xs text-white/60">En minutos</div>
+          </div>
+          <div class="glass rounded-2xl p-4">
+            <div class="text-sm font-semibold">Soporte</div>
+            <div class="text-xs text-white/60">Garantizado</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lado derecho inspirado en el diseño -->
+      <div class="relative">
+        <div class="relative glass rounded-[28px] p-5 sm:p-6 md:p-8 overflow-hidden min-h-[420px] sm:min-h-[460px] md:min-h-[520px]">
+          <img
+            src="/hero-chile.jpg"
+            alt="Flujo TV Chile"
+            width="1200"
+            height="900"
+            loading="eager"
+            class="absolute inset-0 h-full w-full object-cover brightness-[0.78] contrast-[1.05] blur-[5px] scale-[1.03]"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#06080c]/77 via-[#06080c]/18 to-[#06080c]/55"></div>
+
+          <div class="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-lime-300/10 blur-2xl"></div>
+          <div class="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-sky-400/10 blur-2xl"></div>
+
+          <div class="relative z-10 flex items-center justify-between">
+            <div class="text-left">
+              <div class="text-xs tracking-widest text-white/55 uppercase">Colección</div>
+              <div class="mt-1 font-display text-xl font-extrabold">Flujo TV</div>
+              <div class="text-xs text-white/60">Premium</div>
+            </div>
+            <div class="h-9 w-9 rounded-full border border-white/15 bg-white/5 flex items-center justify-center">
+              <span class="text-[10px] text-white/70">HD</span>
+            </div>
+          </div>
+
+          <div class="absolute left-5 right-5 bottom-5 sm:left-6 sm:right-6 sm:bottom-6 md:left-8 md:right-8 md:bottom-8 z-10">
+            <div class="glass rounded-2xl bg-black/45 backdrop-blur-2xl border border-white/20 p-4 sm:p-5">
+              <div class="grid grid-cols-3 gap-3">
+                <div class="rounded-2xl bg-white/10 border border-white/15 p-3">
+                  <div class="text-xs text-white/75">Calidad</div>
+                  <div class="text-sm font-semibold">HD/4K</div>
+                </div>
+                <div class="rounded-2xl bg-white/10 border border-white/15 p-3">
+                  <div class="text-xs text-white/75">Pantallas</div>
+                  <div class="text-sm font-semibold">Hasta 3</div>
+                </div>
+                <div class="rounded-2xl bg-white/10 border border-white/15 p-3">
+                  <div class="text-xs text-white/75">Acceso</div>
+                  <div class="text-sm font-semibold">Multi-dispositivo</div>
+                </div>
+              </div>
+
+              <div class="mt-4 flex items-center justify-between text-xs text-white/75">
+                <span>Requiere internet estable</span>
+                <a class="text-white hover:text-white/90" href="#beneficios">Ver detalles →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

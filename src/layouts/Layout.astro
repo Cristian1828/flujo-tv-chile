@@ -1,0 +1,173 @@
+---
+import { site } from '../config/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+}
+
+const {
+  title = 'Flujo TV Chile | Television en Vivo en HD/4K',
+  description = 'Television en vivo premium en HD/4K y catálogo bajo demanda para Android. Activación rápida, hasta 3 pantallas y soporte garantizado en Chile.',
+  keywords = [
+    'Flujo TV Chile',
+    'television en vivo Chile',
+    'television en vivo Android',
+    'television en vivo HD',
+    'television en vivo 4K',
+    'television en vivo en TV Box Android',
+    'television en vivo en Fire Stick',
+    'television en vivo en Google TV',
+    'Smart TV Android television en vivo',
+    'activar Flujo TV Chile',
+    'planes Flujo TV Chile',
+    '3 pantallas simultaneas',
+    'catalogo bajo demanda',
+    'flujo tv en fire stick',
+    'flujo tv en fire tv',
+    'flujo tv en tv box',
+    'Television en vivo en PC con emulador Android',
+    'Television en vivo para Android / TV Box',
+    'Flujo TV premium',
+    'Flujo TV',
+    'television en vivo en computadora',
+    'Magis TV',
+    'Magis tv en chile',
+    'Magis tv Premium',
+    'activar magis tv',
+    'planes magis tv'
+  ].join(', ')
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, site.canonical).toString();
+const ogImageUrl = new URL('/logo_flujo.png', site.canonical).toString();
+const faviconUrl = new URL('/logo_flujo.png', site.canonical).toString();
+const pageId = `${canonicalUrl}#webpage`;
+const orgId = `${site.canonical}#organization`;
+const websiteId = `${site.canonical}#website`;
+const serviceId = `${site.canonical}#service`;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Flujo TV" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="theme-color" content="#06080c" />
+    <meta name="geo.region" content="CL" />
+    <meta name="geo.placename" content="Chile" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" href={canonicalUrl} hreflang="es-cl" />
+    <link rel="alternate" href={canonicalUrl} hreflang="x-default" />
+
+    <link rel="preload" as="image" href={faviconUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:site_name" content="Flujo TV Chile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" href="/logo_flujo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/logo_flujo.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+      {JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Organization',
+            '@id': orgId,
+            name: 'Flujo TV Chile',
+            url: site.canonical,
+            logo: ogImageUrl,
+            email: site.supportEmail,
+            contactPoint: [
+              {
+                '@type': 'ContactPoint',
+                contactType: 'customer support',
+                email: site.supportEmail,
+                availableLanguage: ['es']
+              }
+            ],
+            sameAs: []
+          },
+          {
+            '@type': 'WebSite',
+            '@id': websiteId,
+            url: site.canonical,
+            name: 'Flujo TV Chile',
+            publisher: { '@id': orgId },
+            inLanguage: 'es-CL'
+          },
+          {
+            '@type': 'WebPage',
+            '@id': pageId,
+            url: canonicalUrl,
+            name: title,
+            description,
+            isPartOf: { '@id': websiteId },
+            about: { '@id': serviceId },
+            inLanguage: 'es-CL',
+            primaryImageOfPage: { '@type': 'ImageObject', url: ogImageUrl }
+          },
+          {
+            '@type': 'Service',
+            '@id': serviceId,
+            name: 'Television en vivo en HD/4K',
+            description: 'Servicio premium de television en vivo y catálogo bajo demanda, diseñado para Android y dispositivos compatibles.',
+            provider: { '@id': orgId },
+            areaServed: [{ '@type': 'Country', name: 'CL' }],
+            offers: [
+              { '@type': 'Offer', name: 'Plan 1 mes', price: 9, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
+              { '@type': 'Offer', name: 'Plan 3 meses', price: 29, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
+              { '@type': 'Offer', name: 'Plan 6 meses (incluye 1 mes gratis)', price: 49, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' },
+              { '@type': 'Offer', name: 'Plan 12 meses (incluye 2 meses gratis)', price: 99, priceCurrency: 'USD', url: canonicalUrl, availability: 'https://schema.org/InStock' }
+            ]
+          }
+        ]
+      })}
+    </script>
+  </head>
+
+  <body class="bg-[#06080c] text-white antialiased">
+    <div class="min-h-screen shine">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+
+  * {
+    box-sizing: border-box;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Syne', system-ui, sans-serif;
+  }
+
+  p, a, button, li {
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+</style>

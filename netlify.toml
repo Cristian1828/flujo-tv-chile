@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Opcional: fija versión de Node si Netlify no detecta la correcta
+[build.environment]
+  NODE_VERSION = "20"

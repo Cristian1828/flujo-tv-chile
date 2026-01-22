@@ -1,0 +1,20 @@
+---
+const stats = [
+  { k: 'Calidad', v: 'HD/4K', d: 'Nitidez y fluidez real' },
+  { k: 'Inicio rápido', v: '< 5 min', d: 'Activación y guía' },
+  { k: 'Pantallas', v: '3', d: 'Simultáneas' },
+  { k: 'Compatibilidad', v: 'Android', d: 'TV Box, Fire Stick, Google TV' }
+];
+---
+
+<section class="mx-auto max-w-6xl px-4 pb-10">
+  <div class="grid gap-4 md:grid-cols-4">
+    {stats.map((s) => (
+      <div class="glass rounded-2xl p-5">
+        <div class="text-xs text-white/55">{s.k}</div>
+        <div class="mt-1 font-display text-2xl font-extrabold tracking-tight">{s.v}</div>
+        <div class="mt-1 text-sm text-white/70">{s.d}</div>
+      </div>
+    ))}
+  </div>
+</section>
